@@ -1,0 +1,84 @@
+High level alarm, test
+Low level alarm, test
+Tripped fuse alarm
+Night mode switch
+Bilge alarm sail locker
+Bilge alarm mid ships
+Bilge alarm engine room
+Bilge alarm aft corridor
+Bilge alarm lazarette
+SW deckpump time elapsed
+Main engine alarm
+Pre alarm diesel generator 1
+Pre alarm diesel generator 2
+Over/under voltage alarm Gen 1
+Frequency alarm Gen 1
+Over/under voltage alarm Gen 2
+Frequency alarm Gen 2
+Earth fault alarm Gen 1 supply
+Earth fault alarm Gen 2 supply
+Shore connection overload
+Earth fault alarm on shore supply
+Water in fuel filter 1 engine
+Water in fuel filter 2 engine
+Water in fuel filter generator 1
+Water in fuel filter generator 2
+Engine room temperature
+Bilge alarm engine room port
+Water pressure pump run dry
+AIS alarm
+Central hydraulic alarm
+Fire alarm
+Earth fault alarm in CC
+Low voltage alarm bank 1
+Low voltage alarm bank 2
+FWD grey water tank full level 100%
+FWD grey water tank high level 75%
+AFT grey water tank full level 100%
+AFT grey water tank high level 75%
+FWD black water tank full level 100%
+FWD black water tank high level 75%
+AFT black water tank full level 100%
+AFT black water tank full level 75%
+Shore connection failure
+Generator 1 overload
+Generator 2 overload
+Service batt temp high
+Nav instrument alarm
+Nav light failure
+Battery ventilation fault
+Bilge counter engine room port
+Bilge counter sail locker
+Bilge counter mid ships
+Bilge counter engine room stbd
+Bilge counter aft corridor
+Bilge counter lazarette
+Fuel from tank 1
+Fuel from tank 2
+Ventilation fault in engine room
+Drain pump counter FWD PT
+Drain pump counter FWD SB
+Drain pump counter ENG ROOM PT
+Drain pump counter ENG ROOM SB
+Drain pump counter AFT PT
+Drain pump counter AFT SB
+Drain pump counter LAZARETTE PT
+Drain pump counter LAZARETTE SB
+Drain pump counter MAST
+High level alarm 1 lights
+High level alarm 2 lights
+High level alarm 3 lights
+High level alarm 4 lights
+Low level alarm 1
+Low level alarm 2
+Low level alarm 3
+Low level alarm 4
+Low level alarm night 1
+Low level alarm night 2
+Low level alarm night 3
+Low level alarm night 4
+High level alarm 1 buzzer
+High level alarm 2 buzzer
+High level alarm 3 buzzer
+High level alarm 4 buzzer
+Bilge pump run connected to burglar alarm

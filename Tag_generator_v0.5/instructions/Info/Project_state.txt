@@ -1,0 +1,290 @@
+PLC TAG RENAMING PROJECT
+
+CURRENT OBJECTIVE
+
+Develop a deterministic PLC tag recognition and renaming system for yacht automation projects.
+
+The system must be knowledge-driven.
+
+Python must act only as an execution engine.
+
+All domain knowledge must live in YAML files.
+
+--------------------------------------------------
+ARCHITECTURE
+--------------------------------------------------
+
+Master_Dictionary
+    ↓
+Recognition Engine
+    ↓
+Semantic Structure
+    ↓
+Naming Engine
+    ↓
+Canonical Tag
+
+--------------------------------------------------
+DESIGN PRINCIPLE
+--------------------------------------------------
+
+Python = Engine
+
+YAML = Knowledge
+
+No domain knowledge should be hardcoded in Python whenever it can be represented inside the YAML knowledge files.
+
+--------------------------------------------------
+MASTER DICTIONARY RESPONSIBILITIES
+--------------------------------------------------
+
+Contains domain knowledge.
+
+Examples:
+
+- systems
+- components
+- actions
+- modifiers
+- locations
+- roles
+- aliases
+
+Aliases are now the only normalization mechanism.
+
+Examples:
+
+reef -> furl
+
+boomvang -> vang
+
+bkstay -> backstay
+
+stbd -> sb
+
+Typos and abbreviations are being deprecated in favor of aliases.
+
+The long term goal is:
+
+canonical concept
+    ↓
+all alternative spellings stored as aliases
+
+--------------------------------------------------
+RECOGNITION ENGINE RESPONSIBILITIES
+--------------------------------------------------
+
+The Recognition Engine does NOT generate tags.
+
+The Recognition Engine only:
+
+1. Tokenizes
+2. Removes technical PLC tokens
+3. Normalizes tokens
+4. Classifies tokens
+5. Builds a semantic structure
+
+Current flow:
+
+Tag
+ ↓
+Tokenization
+ ↓
+Technical Token Removal
+ ↓
+Normalization
+ ↓
+Classification
+ ↓
+Recognition Output
+
+--------------------------------------------------
+CURRENT RECOGNITION FLOW
+--------------------------------------------------
+
+1. Split variable by "_"
+
+Example:
+
+Out16_Sb_Jib_Car_puller_FWD
+
+↓
+
+Out16
+Sb
+Jib
+Car
+puller
+FWD
+
+2. Remove technical PLC prefixes
+
+Examples:
+
+In54
+Out16
+
+Result:
+
+io_direction
+io_number
+omitted_tokens
+
+3. Normalize
+
+Current normalization:
+
+- lowercase
+- alias resolution
+
+4. Classify
+
+Categories:
+
+- system
+- component
+- action
+- modifier
+- side
+- location
+- role
+- unknown
+
+5. Export recognition CSV
+
+--------------------------------------------------
+CURRENT STATUS
+--------------------------------------------------
+
+Implemented:
+
+- tokenization
+- technical token removal
+- alias normalization
+- classification
+- unknown token tracking
+
+Not yet implemented:
+
+- system inference
+- naming engine
+- component composition
+
+--------------------------------------------------
+IMPORTANT ARCHITECTURAL DECISION
+--------------------------------------------------
+
+Component composition will NOT occur inside Recognition Engine.
+
+Recognition Engine must only classify tokens.
+
+Example:
+
+Input:
+
+Sb_jib_car_fwd
+
+Recognition output:
+
+components:
+  - jib
+  - car
+
+side:
+  - sb
+
+location:
+  - fwd
+
+No composition is performed.
+
+--------------------------------------------------
+NAMING ENGINE RESPONSIBILITIES
+--------------------------------------------------
+
+Naming Engine receives semantic structure.
+
+Naming Engine is responsible for:
+
+- system inference
+- component composition
+- final canonical name generation
+
+Example:
+
+components:
+  - jib
+  - car
+
+↓
+
+jibCar
+
+using generic camelCase composition.
+
+This avoids maintaining explicit rules such as:
+
+jib car -> jibCar
+chair rest -> chairRest
+garage door -> garageDoor
+
+--------------------------------------------------
+OPEN DESIGN QUESTION
+--------------------------------------------------
+
+Possible future category:
+
+component_specifier
+
+Candidates:
+
+- main
+- inner
+- primary
+- secondary
+- captive
+- mooring
+
+Not yet implemented.
+
+Need more evidence before introducing a new semantic category.
+
+--------------------------------------------------
+CURRENT STRATEGY
+--------------------------------------------------
+
+Before implementing Naming Engine:
+
+1. Reduce unknown tokens.
+2. Improve aliases.
+3. Improve recognition quality.
+4. Keep Recognition Engine simple.
+5. Keep Python free of domain knowledge.
+
+Only when Recognition Engine is stable:
+
+- Implement system inference.
+- Implement Naming Engine.
+- Implement component composition.
+
+--------------------------------------------------
+RULE FOR FUTURE DEVELOPMENT
+--------------------------------------------------
+
+Before adding any new rule:
+
+Ask:
+
+"Is this knowledge?"
+
+If YES:
+
+Put it in YAML.
+
+If NO:
+
+Implement it in Python.
+
+Goal:
+
+Knowledge-driven architecture.

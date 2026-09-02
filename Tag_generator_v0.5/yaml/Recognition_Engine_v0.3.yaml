@@ -1,0 +1,220 @@
+metadata:
+  name: Recognition_Engine
+  version: 0.3
+  purpose: Token-Based Recognition Engine
+
+description: >
+  Recognition Engine responsible for converting a raw PLC variable
+  into a normalized semantic structure.
+  This engine does not generate the final tag.
+  It only recognizes and classifies tokens.
+
+# STEP 1 - TOKENIZATION
+
+tokenization:
+
+  description: >
+    Split the variable using "_" as separator.
+    To implement in v0.4: add space ' ' as separator to allow description recognition.
+
+# STEP 2 - NORMALIZATION
+
+normalization:
+
+  description: >
+    Normalize each token before classification.
+
+  operations:
+
+    - lowercase
+    - alias_resolution
+
+# STEP 3 - OMITTED TOKENS
+
+omitted_tokens:
+
+  description: >
+    Tokens that contain technical PLC information
+    and should not participate in naming.
+
+  output_fields:
+
+    - io_direction
+    - io_number
+
+# STEP 4 - TOKEN CLASSIFICATION
+
+classification:
+
+  description: >
+    Classify each normalized token into a semantic category.
+
+  categories:
+
+    - system
+    - component
+    - action
+    - modifier
+    - side
+    - location
+    - role
+    - signal_type
+    - unknown
+
+
+# STEP 5 - COMPONENT HANDLING
+
+component_handling:
+
+  description: >
+    Defines how multiple component tokens should be handled.
+
+  allow_multiple_components: true
+
+  concatenate_adjacent_components: true
+
+  composition_style: camelCase
+
+  preserve_component_order: true
+
+  maximum_components: 3
+
+# STEP 6 - SYSTEM INFERENCE
+
+system_inference:
+
+  description: >
+    Infer system from recognized components.
+
+  sources:
+
+    - default_system
+    - possible_systems
+
+  policy:
+
+    use_default_system_first: true
+
+    use_possible_systems_if_needed: true
+
+    allow_unknown_system: true
+
+# STEP 7 - SEMANTIC STRUCTURE
+
+semantic_structure:
+
+  system:
+
+  components: []
+
+  action:
+
+  modifier:
+
+  side:
+
+  location:
+
+  role:
+
+  signal_type:
+
+  unknown_tokens: []
+
+# DESIGN PRINCIPLES
+
+principles:
+
+  - token_first
+
+  - case_insensitive
+
+  - preserve_information
+
+  - never_discard_unknown_tokens
+
+  - infer_only_when_needed
+
+  - deterministic_output
+
+  - naming_is_not_part_of_recognition
+
+naming_templates:
+
+  default:
+    required:
+      - system
+      - object_type
+      - signal_type
+    optional:
+      - object_specifier
+      - attribute
+      - state
+      - action
+      - modifier
+      - location
+      - signal_role
+  
+  actuator:
+    required:
+      - system
+      - object_type
+      - action
+      - signal_type
+    optional:
+      - object_specifier
+      - modifier
+      - location
+      - signal_role
+      
+  feedback:
+    required:
+      - system
+      - object_type
+      - signal_type
+    optional:
+      - object_specifier
+      - attribute
+      - state
+      - action
+      - modifier
+      - location
+      - signal_role
+      
+  alarm:
+    required:
+      - system
+      - object_type
+      - state
+      - signal_type
+    optional:
+      - object_specifier
+      - attribute
+      - modifier
+      - location
+      - signal_role
+
+  system_state:
+    required:
+      - system
+      - state
+      - signal_type
+    optional:
+      - object_specifier
+      - object_type
+      - attribute
+      - modifier
+      - location
+      - signal_role
+
+  measurement:
+    required:
+      - system
+      - object_type
+      - attribute
+      - signal_type
+    optional:
+      - object_specifier
+      - modifier
+      - location
+      - signal_role

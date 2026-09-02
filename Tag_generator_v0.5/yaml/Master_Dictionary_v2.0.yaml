@@ -1,0 +1,574 @@
+metadata:
+  version: 2.0
+  status: under construction
+  source_projects:
+    - Onyx
+    - Genevieve
+    - Huckle
+    - Doryan
+
+
+systems:
+  description: Highest level of classification for a tag. They represent a functional grouping of components and equipment.
+  values:
+    - Hyd
+    - Dc
+    - Ac
+    - Bilge
+    - Fire
+    - Fuel
+    - Fw
+    - Ww
+    - Vent
+    - Shore
+    - Spare
+    - Fridge
+    - Lights
+    - Nav
+    - PLC
+    - Tanks
+    - ME
+    - GenPt
+    - GenSb
+    - GenFwd
+    - GenAft
+
+object_types:
+  description:
+  values:
+    pump:
+      possible_system: [Hyd, Fw, Ww, Fuel, Bilge, Fire, Dc, Ac]
+
+    valve:
+      possible_system: [Hyd, Fw, Ww, Fuel, Bilge, Fire, Vent]
+
+    filter:
+      possible_system: [Hyd, Fw, Ww, Fuel, Bilge, Fire]
+
+    solenoid:
+      possible_system: [Hyd, Dc, Vent]
+
+    tank:
+      possible_system: [Tanks, Fuel, Fw, Ww, Bilge, Fire]
+
+    engine:
+      possible_system: [ME]
+
+    generator:
+      possible_system: [Hyd, Fw, Ww, Fuel, Bilge, Fire, Dc]
+      
+    pto:  
+      possible_system: [ME]
+
+    winch:
+      possible_system: [Hyd, Dc, Ac]
+
+    furler:
+      possible_system: [Hyd, Dc]
+
+    car:
+      possible_system: [Hyd]
+
+    sheet:
+      possible_system: [Hyd]
+
+    sail:
+      possible_system: [Hyd]
+
+    halyard:
+      possible_system: [Hyd]
+
+    traveller:
+      possible_system: [Hyd]
+
+    backstay:
+      possible_system: [Hyd]
+
+    forestay:
+      possible_system: [Hyd]
+
+    innerforestay:
+      possible_system: [Hyd]
+
+    mandrel:
+      possible_system: [Hyd, Dc]
+
+    outhaul:
+      possible_system: [Hyd]
+
+    staysail:
+      possible_system: [Hyd]
+
+    cunningham:
+      possible_system: [Hyd]
+
+    vang:
+      possible_system: [Hyd]
+
+    boom:
+      possible_system: [Hyd]
+
+    keel:
+      possible_system: [Hyd]
+
+    windlass:
+      possible_system: [Dc, Ac, Hyd]
+
+    chain:
+      possible_system: [Dc, Ac, Hyd]
+
+    arm:
+      possible_system: [Dc, Ac, Hyd]
+
+    thruster:
+      possible_system: [Dc, Ac]
+
+    door:
+      possible_system: [Dc, Ac]
+
+    sealing:
+      possible_system: [Dc, Ac]
+
+    damper:
+      possible_system: [Vent]
+
+    fanCoil:
+      possible_system: [Ac]
+
+    battery:
+      possible_system: [Dc]
+
+    fuse:
+      possible_system: [Dc, Ac]
+
+    breaker:
+      possible_system: [Dc, Ac]
+
+    charger:
+      possible_system: [Dc, Shore]
+
+object_standalones:
+  description: Objects that can be used as standalone components without further specification
+  values:
+    - mainsheet
+    - mizzensheet
+       
+object_specifiers:
+  description: Specifiers that can be used to form a component when combined with an object_type
+  values:  
+    # Sail related
+    - jib
+    - genoa
+    - code0
+    - mizzen
+    - main
+    - boom
+    - inner
+
+    # Winch roles
+    - primary
+    - secondary
+    - mooring
+    - captive
+
+    # Anchoring
+    - anchor
+
+    # Thruster roles
+    - bow
+    - stern
+
+    - dinghy
+    - transom
+
+modifiers:
+  description: Modifiers that can be used to further specify a component
+  values:
+    # Magnitude
+    - high
+    - low
+    - highhigh
+    - lowlow
+
+    # Speed
+    - fast
+    - slow
+
+    # Mode
+    - auto
+    - manual
+
+    # Direction
+    - cw
+    - ccw
+
+    # Priority
+    - emergency
+
+locations:
+  description: Ships possible location of equipment or interfaces
+  values:
+    # Port / starboard
+    - pt
+    - sb
+
+    # Longitudinal
+    - fwd
+    - aft
+    - mid
+
+    # Compartments
+    - er
+    - fp
+    - laz
+
+    # Navigation / operation spaces
+    - cp
+    - wh
+
+    # Structures
+    - mast
+    - ped
+    - coam
+    - msi
+
+    # Internal spaces
+    - galley
+    - saloon
+
+    # Accommodation
+    - owner
+    - guest
+    - crew
+    - captain
+    - nanny
+    - vip
+
+attributes:
+  description: 
+  values:
+    - pressure
+    - temperature
+    - level
+    - flow
+    - speed
+    - frequency
+    - voltage
+    - current
+    - power
+    - position
+    - load
+
+states:
+  description:
+  values:
+    - running
+    - stopped
+    - active
+    - inactive
+    - online
+    - offline
+    - ready
+    - fault
+    - fail
+    - overload
+    - tripped
+    - full
+    - empty
+    - closed
+    - locked
+    - unlocked
+
+actions:
+  description:
+  values:
+    # General
+    - enable
+    - disable
+    - close
+
+    # Hydraulic  
+    - ten
+    - rel
+    - reef
+    - set
+    - furl
+    - unfurl
+    - lock
+    - unlock
+    - cw
+    - ccw
+    - payin
+    - payout
+    - hoist
+    - stow
+    
+    # Electric
+    - unload
+    - run
+    - start
+    - stop
+    - engage
+    - disengage
+
+device_classes:
+  description: Types of sensors / actuators
+  values:
+    - limitswitch
+    - footswitch
+    - button
+    - indicator
+    - pressureswitch
+    - switch
+
+signal_roles:
+  description: Token that determines purpose of the signal
+  values:
+    - feedback
+    - command
+    - request
+    - prove
+    - estop
+    - status
+
+signal_types:
+  description:
+  values:
+    - DI
+    - DO
+    - AI
+    - AO
+    - M
+    - INT
+    - ACT_SCN
+    - DIS
+
+ambiguous:
+  description: Tokens that can be classified into multiple categories and requiere context recognition
+  values:
+    - in
+    - out
+    - on
+    - off
+    - up
+    - dn
+    - open
+
+aliases:
+
+  pressure:
+    - press
+    - pressur
+
+  temperature:
+    - temp
+
+  frequency:
+    - freq
+
+  current:
+    - curr
+
+  voltage:
+    - volt
+
+  power:
+    - pwr
+
+  position:
+    - pos
+
+  counter:
+    - cnt
+    - cntr
+
+  speed:
+    - spd
+    - sp
+
+  pressureswitch:
+    - psw
+    - pressureswitch
+    - presssw
+
+  limitswitch:
+    - ls
+    - limitswitch
+
+  footswitch:
+    - fsw
+    - footswitch
+    - footsw
+
+  button:
+    - btn
+    - button
+    - pushbutton
+    - pushbtn
+    - but
+
+  indicator:
+    - ind
+    - indicator
+    - indication
+    - lamp
+    - led
+
+  pump:
+    - pmp
+
+  valve:
+    - vlv
+    - vlve
+
+  filter:
+    - filt
+
+  generator:
+    - gen
+    - genset
+
+  breaker:
+    - brker
+
+  battery:
+    - batt
+
+  windlass:
+    - windl
+
+  winch:
+    - wch
+    - winche
+
+  thruster:
+    - thr
+    - thrstr
+    - thrsr
+    - thrust
+
+  traveller:
+    - traveler
+    - trav
+    - travellr
+    - travler
+
+  forestay:
+    - fstay
+
+  innerforestay:
+    - ifs
+
+  mandrel:
+    - mandrell
+
+  vang:
+    - boomvang
+
+  cunningham:
+    - cunh
+
+  mooring:
+    - moor
+    - moorng
+
+  captive:
+    - captv
+
+  pt:
+    - port
+    - portside
+    - prt
+
+  sb:
+    - starboard
+    - starboardside
+    - stbd
+    - sbd
+    - sd
+    - std
+    - sbside
+
+  er:
+    - engineroom
+
+  fp:
+    - forepeak
+    - fore
+
+  cp:
+    - cockpit
+
+  wh:
+    - wheelhouse
+
+  ped:
+    - pedestal
+    - pedstal
+
+  coam:
+    - coaming
+
+  high:
+    - hi
+    - hgh
+
+  low:
+    - lo
+    - lw
+
+  highhigh:
+    - hihi
+    - toohigh
+    - veryhigh
+    - veryhi
+
+  lowlow:
+    - lwlw
+    - toolow
+    - verylow
+    - verylo
+
+  fast:
+    - fst
+    - highspeed
+    - hispeed
+
+  slow:
+    - slw
+    - lowspeed
+    - lospeed
+
+  cw:
+    - clockwise
+
+  ccw:
+    - counterclockwise
+
+  tense:
+    - ten
+    - tension
+    - tighten
+    - pull
+
+  release:
+    - rel
+    - ease
+
+  enable:
+    - en
+    - ena
+    - activate
+
+  request:
+    - req
+    - reqst
+    - requested
+
+  acknowledge:
+    - ack
+    - ackn
+
+  down:
+    - dn
+    - dwn

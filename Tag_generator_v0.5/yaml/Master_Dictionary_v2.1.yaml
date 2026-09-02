@@ -1,0 +1,1165 @@
+metadata:
+  version: 2.0
+  status: under construction
+  source_projects:
+    - Onyx
+    - Genevieve
+    - Huckle
+    - Doryan
+
+systems:
+  description: Highest level of classification for a tag. They represent a functional grouping of components and equipment.
+  values:
+    
+    Hydraulic:
+      tag_code: Hyd
+    
+    Dc:  
+      tag_code: Dc 
+   
+    Ac:  
+      tag_code: Ac 
+    
+    Bilge:
+      tag_code: Bilge 
+    
+    Fire: 
+      tag_code: Fire 
+    
+    Fuel:  
+      tag_code: Fuel 
+    
+    Freshwater: 
+      tag_code: Fw 
+    
+    Greywater:  
+      tag_code: Gw
+
+    Blackwater:  
+      tag_code: Bw 
+    
+    Ventilation:  
+      tag_code: Vent 
+   
+    Shore:  
+      tag_code: Shore 
+   
+    Spare:  
+      tag_code: Spare 
+    
+    Fridge:  
+      tag_code: Fridge 
+    
+    Lights:  
+      tag_code: Lights 
+    
+    Navigation:  
+      tag_code: Nav 
+    
+    PLC:  
+      tag_code: PLC 
+    
+    Tanks:  
+      tag_code: Tanks 
+    
+    MainEngine:  
+      tag_code: ME 
+    
+    GenPort:  
+      tag_code: GenPt 
+    
+    GenStarboard:  
+      tag_code: GenSb 
+    
+    GenForward:  
+      tag_code: GenFwd 
+    
+    GenAftward:  
+      tag_code: GenAft 
+
+    #Alarm:
+      #tag_code: Alrm
+
+object_types:
+  description:
+  values:
+    pump:
+      tag_code: pump
+      possible_system: [Hydraulic, Freshwater, Greywater, Blackwater, Fuel, Bilge, Fire, Dc, Ac]
+
+    valve:
+      tag_code: vlv
+      possible_system: [Hydraulic, Freshwater, Greywater, Blackwater, Fuel, Bilge, Fire, Vent]
+
+    filter:
+      tag_code: filter
+      possible_system: [Hydraulic, Freshwater, Greywater, Blackwater, Fuel, Bilge, Fire]
+
+    solenoid:
+      tag_code: solenoid
+      possible_system: [Hydraulic, Dc, Vent]
+
+    tank:
+      tag_code: tank
+      possible_system: [Tanks, Fuel, Freshwater, Greywater, Blackwater, Bilge, Fire]
+
+    engine:
+      tag_code: eng
+      possible_system: [MainEngine]
+
+    generator:
+      tag_code: gen
+      possible_system: [Hydraulic, GenPort, GenStarboard, Fuel, GenForward, GenAftward, Dc]
+    
+    pto:  
+      tag_code: pto
+      possible_system: [Hydraulic, GenPort, GenStarboard, GenForward, GenAftward, MainEngine]
+
+    winch:
+      tag_code: winch
+      possible_system: [Hydraulic, Dc, Ac]
+
+    furler:
+      tag_code: furler
+      possible_system: [Hydraulic, Dc]
+
+    car:
+      tag_code: car
+      possible_system: [Hydraulic]
+
+    sheet:
+      tag_code: sheet
+      possible_system: [Hydraulic]
+
+    sail:
+      tag_code: sail
+      possible_system: [Hydraulic]
+
+    halyard:
+      tag_code: haly
+      possible_system: [Hydraulic]
+
+    traveller:
+      tag_code: traveller
+      possible_system: [Hydraulic]
+
+    backstay:
+      tag_code: backstay
+      possible_system: [Hydraulic]
+
+    forestay:
+      tag_code: Fstay
+      possible_system: [Hydraulic]
+
+    mandrel:
+      tag_code: mandrel
+      possible_system: [Hydraulic, Dc]
+
+    outhaul:
+      tag_code: outhaul
+      possible_system: [Hydraulic]
+
+    staysail:
+      tag_code: staysail
+      possible_system: [Hydraulic]
+
+    cunningham:
+      tag_code: cunningham
+      possible_system: [Hydraulic]
+
+    vang:
+      tag_code: vang
+      possible_system: [Hydraulic]
+
+    boom:
+      tag_code: boom
+      possible_system: [Hydraulic]
+
+    keel:
+      tag_code: keel
+      possible_system: [Hydraulic]
+
+    windlass:
+      tag_code: windlass
+      possible_system: [Dc, Ac, Hydraulic]
+
+    chain:
+      tag_code: chain
+      possible_system: [Dc, Ac, Hydraulic]
+
+    arm:
+      tag_code: arm
+      possible_system: [Dc, Ac, Hydraulic]
+
+    thruster:
+      tag_code: thruster
+      possible_system: [Dc, Ac]
+
+    door:
+      tag_code: door
+      possible_system: [Dc, Ac]
+
+    sealing:
+      tag_code: sealing
+      possible_system: [Dc, Ac]
+
+    damper:
+      tag_code: damper
+      possible_system: [Vent]
+
+    fanCoil:
+      tag_code: fanCoil
+      possible_system: [Ac]
+
+    battery:
+      tag_code: battery
+      possible_system: [Dc]
+
+    fuse:
+      tag_code: fuse
+      possible_system: [Dc, Ac]
+
+    breaker:
+      tag_code: breaker
+      possible_system: [Dc, Ac]
+
+    charger:
+      tag_code: charger
+      possible_system: [Dc, Shore]
+
+    light:
+      tag_code: light
+      possible_system: [Lights]
+
+    supply:
+      tag_code: supply
+      possible_system: [Ac, Dc]
+
+    buzzer:
+      tag_code: buzz
+      possible_system: [Dc, Alarm]
+
+    instrument:
+      tag_code: instrument
+      possible_system: [Navigation, Dc, Ac]
+
+    bank:
+      tag_code: bank
+      possible_system: [Dc]
+
+    connection:
+      tag_code: connection
+      possible_system: [Shore]
+
+object_standalones:
+  description: Defined objects that dont require a specifier.
+               Include here alse common combinations of object_specifier + object_type that
+  values:
+       
+    innerforestay:
+      tag_code: innerFstay
+      possible_system: [Hydraulic]
+
+    bowthruster:
+      tag_code: bowt
+      possible_system: [Hydraulic]
+
+    sternthruster:
+      tag_code: sternt
+      possible_system: [Hydraulic]
+
+    ais:
+      tag_code: AIS
+      possible_system: [Navigation]
+
+    deckpump:
+      tag_code: deckPump
+      possible_system: [Ac, Dc, Bilge]
+
+object_specifiers:
+  description: Specifiers that can be used to form a component when combined with an object_type
+  values:
+    
+    mainsheet:
+      tag_code: mainsheet
+      possible_system: [Hydraulic]
+    
+    mizzensheet:
+      tag_code: mizzensheet
+      possible_system: [Hydraulic]
+    
+    oil:
+      tag_code: oil
+      possible_system: [Hydraulic, Fuel, MainEngine]
+
+    water:
+      tag_code: water
+      possible_system: [Freshwater, Greywater, Blackwater, Bilge]
+    
+    cooling:
+      tag_code: cooling
+      possible_system: [MainEngine, Dc, Ac]
+
+    suction:
+      tag_code: suction
+      possible_system: [Bilge, Freshwater, Greywater, Blackwater, MainEngine]
+
+    diesel:
+      tag_code: diesel
+      possible_system: [Fuel, MainEngine, GenPort, GenStarboard, GenForward, GenAftward]
+
+    garage:
+      tag_code: garage
+      possible_system: [Spare]
+
+    dingy:
+      tag_code: dingy
+      possible_system: [Hydraulic, Dc]
+
+    anchor:
+      tag_code: anchor
+      possible_system: [Hydraulic, Dc, Ac]
+
+    jib: 
+      tag_code: jib
+      possible_system: [Hydraulic]
+    
+    genoa:
+      tag_code: genoa
+      possible_system: [Hydraulic]
+    
+    code0:
+      tag_code: code0
+      possible_system: [Hydraulic]
+    
+    mizzen:
+      tag_code: mizzen
+      possible_system: [Hydraulic]
+    
+    main:
+      tag_code: main
+      possible_system: [Hydraulic]
+    
+    boom:
+      tag_code: boom
+      possible_system: [Hydraulic]
+
+    inner:
+      tag_code: inner
+      possible_system: [Hydraulic]
+
+    mooring:
+      tag_code: mooring
+      possible_system: [Hydraulic, Dc, Ac]
+
+    primary:
+      tag_code: prim
+      possible_system: [Hydraulic, Dc, Ac]
+
+    secondary:
+      tag_code: sec
+      possible_system: [Hydraulic, Dc, Ac]
+
+    captive:
+      tag_code: captv
+      possible_system: [Hydraulic, Dc, Ac]
+
+    grey:
+      tag_code: grey
+      possible_system: [Greywater]
+
+    black:
+      tag_code: black
+      possible_system: [Blackwater]
+
+    night:
+      tag_code: night
+      possible_system: [Lights]
+
+    service:
+      tag_code: service
+      possible_system: [Dc]
+
+    earth:
+      tag_code: earth
+      possible_system: [Dc, Ac]
+
+    electronic:
+      tag_code: elec
+      possible_system: [Dc, Ac, Navigation, PLC]
+
+    drain:
+      tag_code: drain
+      possible_system: [Bilge]
+
+modifiers:
+  description: Modifiers that can be used to further specify a component
+  values:
+    
+    high:
+      tag_code: high
+    
+    low:
+      tag_code: low
+    
+    highhigh:
+      tag_code: highhigh
+    
+    lowlow:
+      tag_code: lowlow
+    
+    fast:
+      tag_code: fast
+    
+    slow:
+      tag_code: slow
+
+    over:
+      tag_code: over
+
+    under:
+      tag_code: under
+
+    dry:
+      tag_code: dry
+
+    pre:
+      tag_code: pre
+
+locations:
+  description: Ships possible location of equipment or interfaces
+  values:
+
+    # Port / starboard
+    port:
+      tag_code: pt
+    
+    starboard:
+      tag_code: sb
+
+    # Longitudinal
+    forward:
+      tag_code: fwd
+    
+    aftward:
+      tag_code: aft
+    
+    mid:
+      tag_code: mid
+    
+    bow:
+      tag_code: bow
+    
+    stern:
+      tag_code: stern
+
+    # Compartments
+    engineroom:
+      tag_code: er
+    
+    forepeak:
+      tag_code: fp
+    
+    lazarette:
+      tag_code: laz
+
+    locker:
+      tag_code: locker
+
+    room:
+      tag_code: room
+
+    corridor:
+      tag_code: corridor
+
+    # Navigation / operation spaces
+    cockpit:
+      tag_code: cp
+    
+    wheelhouse:
+      tag_code: wh
+
+    portPedestal:
+      tag_code: ptPed
+
+    starboardPedestal:
+      tag_code: sbPed
+
+    # Structures
+    mast:
+      tag_code: mast
+    
+    pedestal:
+      tag_code: ped
+    
+    coaming:
+      tag_code: coam
+    
+    msi:
+      tag_code: msi
+
+    # Internal spaces
+    galley:
+      tag_code: galley
+    
+    saloon:
+      tag_code: saloon
+
+attributes:
+  description:
+  values:
+    
+    pressure:
+      tag_code: pressure
+      signal_scores: {"di": 1, "do": 0, "ai": 2, "ao": 0}
+    
+    temperature:
+      tag_code: temperature
+      signal_scores: {"di": 1, "do": 0, "ai": 2, "ao": 0}
+    
+    level:
+      tag_code: level
+      signal_scores: {"di": 1, "do": 0, "ai": 2, "ao": 0}
+    
+    flow:
+      tag_code: flow
+      signal_scores: {"di": 1, "do": 0, "ai": 2, "ao": 0}
+    
+    speed:
+      tag_code: speed
+      signal_scores: {"di": 2, "do": 0, "ai": 1, "ao": 0}
+    
+    frequency:
+      tag_code: frequency
+      signal_scores: {"di": 1, "do": 0, "ai": 2, "ao": 0}
+
+    voltage:
+      tag_code: voltage
+      signal_scores: {"di": 1, "do": 0, "ai": 2, "ao": 0}
+
+    current:
+      tag_code: current
+      signal_scores: {"di": 1, "do": 0, "ai": 2, "ao": 0}
+
+    power:
+      tag_code: power
+      signal_scores: {"di": 1, "do": 0, "ai": 2, "ao": 0}
+
+    position:
+      tag_code: position
+      signal_scores: {"di": 1, "do": 0, "ai": 2, "ao": 0}
+
+    load:
+      tag_code: load
+      signal_scores: {"di": 0, "do": 0, "ai": 0, "ao": 0}
+
+    time:
+      tag_code: time
+      signal_scores: {"di": 0, "do": 0, "ai": 0, "ao": 0}
+
+states:
+  description:
+  values:
+    
+    running:
+      tag_code: running
+      signal_scores: {"di": 1, "do": 0, "ai": 0, "ao": 0}
+    
+    stopped:
+      tag_code: stopped
+      signal_scores: {"di": 1, "do": 0, "ai": 0, "ao": 0}
+    
+    active:
+      tag_code: active
+      signal_scores: {"di": 1, "do": 0, "ai": 0, "ao": 0}
+    
+    inactive:
+      tag_code: inactive
+      signal_scores: {"di": 1, "do": 0, "ai": 0, "ao": 0}
+    
+    online:
+      tag_code: online
+      signal_scores: {"di": 1, "do": 0, "ai": 0, "ao": 0}
+    
+    offline:
+      tag_code: offline
+      signal_scores: {"di": 1, "do": 0, "ai": 0, "ao": 0}
+    
+    ready:
+      tag_code: ready
+      signal_scores: {"di": 1, "do": 0, "ai": 0, "ao": 0}
+    
+    fault:
+      tag_code: fault
+      signal_scores: {"di": 1, "do": 0, "ai": 0, "ao": 0}
+    
+    fail:
+      tag_code: fail
+      signal_scores: {"di": 1, "do": 0, "ai": 0, "ao": 0}
+    
+    overload:
+      tag_code: overload
+      signal_scores: {"di": 1, "do": 0, "ai": 0, "ao": 0}
+
+    tripped:
+      tag_code: tripped
+      signal_scores: {"di": 1, "do": 0, "ai": 0, "ao": 0}
+
+    full:
+      tag_code: full
+      signal_scores: {"di": 1, "do": 0, "ai": 0, "ao": 0}
+
+    empty:
+      tag_code: empty
+      signal_scores: {"di": 1, "do": 0, "ai": 0, "ao": 0}
+
+    closed:
+      tag_code: closed
+      signal_scores: {"di": 1, "do": 0, "ai": 0, "ao": 0}
+
+    locked:
+      tag_code: locked
+      signal_scores: {"di": 1, "do": 0, "ai": 0, "ao": 0}
+
+    unlocked:
+      tag_code: unlocked
+      signal_scores: {"di": 1, "do": 0, "ai": 0, "ao": 0}
+
+    connected:
+      tag_code: connected
+      signal_scores: {"di": 1, "do": 0, "ai": 0, "ao": 0}
+
+    percent:
+      tag_code: perc
+      signal_scores: {"di": 1, "do": 0, "ai": 0, "ao": 0}
+
+actions:
+  description:
+  values:
+    
+    # General
+    enable:
+      tag_code: enable
+    
+    disable:
+      tag_code: disable
+    
+    close:
+      tag_code: close
+
+    # Hydraulic
+    tense:
+      tag_code: ten
+    
+    release:
+      tag_code: rel
+    
+    reef:
+      tag_code: reef
+    
+    set:
+      tag_code: set
+    
+    furl:
+      tag_code: furl
+    
+    unfurl:
+      tag_code: unfurl
+    
+    lock:
+      tag_code: lock
+    
+    unlock:
+      tag_code: unlock
+    
+    clockwise:
+      tag_code: cw
+    
+    counterclockwise:
+      tag_code: ccw
+    
+    payin:
+      tag_code: payin
+    
+    payout:
+      tag_code: payout
+    
+    hoist:
+      tag_code: hoist
+    
+    stow:
+      tag_code: stow
+
+    flatten:
+      tag_code: flatten
+
+    # Electric
+    unload:
+      tag_code: unload
+    
+    run:
+      tag_code: run
+    
+    start:
+      tag_code: start
+    
+    stop:
+      tag_code: stop
+    
+    engage:
+      tag_code: engage
+    
+    disengage:
+      tag_code: disengage
+
+device_classes:
+  description: Types of sensors / actuators
+  values:
+    
+    limitswitch:
+      tag_code: ls
+      signal_scores: {"di": 1, "do": 0, "ai": 0, "ao": 0}
+    
+    footswitch:
+      tag_code: fsw
+      signal_scores: {"di": 1, "do": 0, "ai": 0, "ao": 0}
+    
+    button:
+      tag_code: btn
+      signal_scores: {"di": 1, "do": 0, "ai": 0, "ao": 0}
+    
+    indicator:
+      tag_code: ind
+      signal_scores: {"di": 0, "do": 1, "ai": 0, "ao": 0}
+    
+    pressureswitch:
+      tag_code: psw
+      signal_scores: {"di": 1, "do": 0, "ai": 0, "ao": 0}
+    
+    switch:
+      tag_code: sw
+      signal_scores: {"di": 1, "do": 0, "ai": 0, "ao": 0}
+
+    joystick:
+      tag_code: joystick
+      signal_scores: {"di": 1, "do": 0, "ai": 2, "ao": 0}
+
+signal_roles:
+  description: Token that determines purpose of the signal
+  values:
+    
+    feedback:
+      tag_code: feedback
+      signal_scores: {"di": 2, "do": 0, "ai": 0, "ao": 0}
+    
+    command:
+      tag_code: cmd
+      signal_scores: {"di": 0, "do": 2, "ai": 0, "ao": 0}
+    
+    request:
+      tag_code: req
+      signal_scores: {"di": 2, "do": 0, "ai": 0, "ao": 0}
+    
+    prove:
+      tag_code: prove
+      signal_scores: {"di": 1, "do": 0, "ai": 0, "ao": 0}
+    
+    estop:
+      tag_code: estop
+      signal_scores: {"di": 1, "do": 0, "ai": 0, "ao": 0}
+    
+    status:
+      tag_code: status
+      signal_scores: {"di": 1, "do": 0, "ai": 0, "ao": 0}
+
+    alarm:  
+      tag_code: alrm
+      signal_scores: {"di": 1, "do": 0, "ai": 0, "ao": 0}
+
+    test:
+      tag_code: test
+      signal_scores: {"di": 1, "do": 0, "ai": 0, "ao": 0}
+
+signal_types:
+  description:
+  values:
+    
+    DI:
+      tag_code: DI
+    
+    DO:
+      tag_code: DO
+    
+    AI:
+      tag_code: AI
+    
+    AO:
+      tag_code: AO
+    
+    M:
+      tag_code: M
+    
+    INT:
+      tag_code: INT
+    
+    ACT_SCN:
+      tag_code: ACT_SCN
+    
+    DIS:
+      tag_code: DIS
+
+ambiguous:
+  description: Tokens that can be classified into multiple categories and requiere context recognition
+  values:
+    
+    in:
+      tag_code: in
+    
+    out:
+      tag_code: out
+    
+    "on":
+      tag_code: "on"
+    
+    "off":
+      tag_code: "off"
+    
+    up:
+      tag_code: up
+    
+    down:
+      tag_code: dn
+    
+    open:
+      tag_code: open
+
+    counter:
+      tag_code: counter
+    
+    ships:
+      tag_code: ships
+
+    central:
+      tag_code: central
+
+    # new category? semantic words or similar
+    from:
+      tag_code: from
+
+    to:
+      tag_code: to
+
+    mode:
+      tag_code: mode
+    
+aliases:
+
+  # Systems
+  hydraulic:
+    - hyd
+  
+  navigation:
+    - nav
+
+  greywater:
+    - gw
+    - graywater
+
+  blackwater:
+    - bw
+
+
+  # Object Types
+  pump:
+    - pmp
+
+  valve:
+    - vlv
+    - vlve
+
+  filter:
+    - filt
+
+  generator:
+    - gen
+    - genset
+
+  engine:
+    - eng
+  
+  windlass:
+    - windl
+
+  winch:
+    - wch
+    - winche
+    - w
+
+  thruster:
+    - thr
+    - thrstr
+    - thrsr
+
+  halyard:
+    - haly
+
+  forestay:
+    - fstay
+
+  innerforestay:
+    - ifs
+
+  vang:
+    - vng
+
+  mandrel:
+    - mandrell
+
+  traveller:
+    - trav
+    - travellr
+    - travler
+
+  arm:
+    - swingarm
+    - ancharm
+    - anchorarm
+
+  battery:
+    - batt
+
+  breaker:
+    - brker
+
+
+  # Object Standalones
+  mainsheet:
+    - mainsh
+    - mainsht
+
+  bowthruster:
+    - bowt
+    - bowthr
+    - bowthrstr
+    - bowthrust
+
+  sternthruster:
+    - sternt
+    - sternthr
+    - sternthrstr
+    - sterthrust
+
+  # Object Specifiers
+  pto:
+    - clutch
+
+  primary:
+    - prim
+
+  secondary:
+    - sec
+
+  anchor:
+    - anch
+
+  mooring:
+    - moor
+    - moorng
+
+  captive:
+    - captv
+
+  dingy:
+    - dinghy
+
+  # Modifiers
+  high:
+    - hi
+    - hgh
+
+  low:
+    - lo
+    - lw
+
+  highhigh:
+    - hihi
+    - veryhi
+
+  lowlow:
+    - lwlw
+    - verylo
+
+  fast:
+    - fst
+    - hispeed
+    - highspeed
+    - 2sp
+
+  slow:
+    - slw
+    - lospeed
+    - lowspeed
+    - 1sp
+
+  # Locations
+  coaming:
+    - coam
+
+  forward:
+    - fwd
+
+  aftward:
+    - aft
+
+  stern:
+    - strn
+
+  port:
+    - prt
+    - pt
+    - ptside
+
+  starboard:
+    - stbd
+    - sbd
+    - sd
+    - std
+    - sbside
+    - sb
+
+  engineroom:
+    - er
+
+  forepeak:
+    - fp
+
+  cockpit:
+    - cp
+
+  wheelhouse:
+    - wh
+
+  lazarette:
+    - laz
+    - lazz
+    - lazarete
+
+  pedestal:
+    - pedstal
+    - ped
+
+  portpedestal:
+    - ptPed
+
+  starboardpedestal:
+    - sbPed
+
+  # Attributes
+  pressure:
+    - press
+    - pressur
+
+  temperature:
+    - temp
+
+  frequency:
+    - freq
+
+  current:
+    - curr
+
+  voltage:
+    - volt
+
+  power:
+    - pwr
+
+  position:
+    - pos
+
+  counter:
+    - cnt
+    - cntr
+
+  speed:
+    - spd
+    - sp
+
+  # States
+  fail:
+    - failure
+  
+  percent:
+    - perc
+    - percentage
+
+  # Actions
+  clockwise:
+    - cw
+
+  counterclockwise:
+    - ccw
+
+  tense:
+    - ten
+
+  release:
+    - rel
+    - ease
+
+  enable:
+    - en
+    - ena
+
+  # Device Classes
+  pressureswitch:
+    - psw
+    - ps
+
+  limitswitch:
+    - ls
+
+  footswitch:
+    - fsw
+    - footsw
+
+  button:
+    - btn
+    - pushbtn
+    - but
+    - pb
+
+  indicator:
+    - ind
+    - lamp
+
+  light:
+    - lt
+
+  switch:
+    - sw
+
+  # Signal Roles
+  request:
+    - req
+    - reqst
+
+  acknowledge:
+    - ack
+    - ackn
+
+  alarm:
+    - alrm
+
+  # Signal Types
+
+
+  # Ambiguous
+  down:
+    - dn
+    - dwn
+
+  counter:
+    - cntr
+    - countr
+
